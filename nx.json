@@ -1,0 +1,22 @@
+{
+  "npmScope": "get-set-algo",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "get-set-algo": {
+      "tags": []
+    },
+    "get-set-algo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["get-set-algo"]
+    }
+  }
+}
