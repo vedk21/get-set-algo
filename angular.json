@@ -123,6 +123,70 @@
           }
         }
       }
+    },
+    "animation-elements": {
+      "projectType": "library",
+      "root": "libs/animation-elements",
+      "sourceRoot": "libs/animation-elements/src",
+      "prefix": "get-set-algo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/animation-elements/tsconfig.lib.json",
+              "libs/animation-elements/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/animation-elements/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/animation-elements/jest.config.js",
+            "tsConfig": "libs/animation-elements/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/animation-elements/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "animate": {
+      "projectType": "library",
+      "root": "libs/animate",
+      "sourceRoot": "libs/animate/src",
+      "prefix": "get-set-algo",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/animate/tsconfig.lib.json",
+              "libs/animate/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/animate/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/animate/jest.config.js",
+            "tsConfig": "libs/animate/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/animate/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

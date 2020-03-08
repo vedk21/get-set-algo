@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@get-set-algo/animation-elements": [
+        "libs/animation-elements/src/index.ts"
+      ],
+      "@get-set-algo/animate": ["libs/animate/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

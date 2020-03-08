@@ -17,6 +17,12 @@
     "get-set-algo-e2e": {
       "tags": [],
       "implicitDependencies": ["get-set-algo"]
+    },
+    "animation-elements": {
+      "tags": []
+    },
+    "animate": {
+      "tags": []
     }
   }
 }
