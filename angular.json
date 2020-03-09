@@ -10,7 +10,7 @@
       },
       "root": "apps/get-set-algo",
       "sourceRoot": "apps/get-set-algo/src",
-      "prefix": "get-set-algo",
+      "prefix": "gsa",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -128,7 +128,7 @@
       "projectType": "library",
       "root": "libs/animation-elements",
       "sourceRoot": "libs/animation-elements/src",
-      "prefix": "get-set-algo",
+      "prefix": "lib",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -160,7 +160,7 @@
       "projectType": "library",
       "root": "libs/animate",
       "sourceRoot": "libs/animate/src",
-      "prefix": "get-set-algo",
+      "prefix": "animate",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
