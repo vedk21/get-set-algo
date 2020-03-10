@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SortingRoutingModule } from './sorting-routing.module';
 import { SortingComponent } from './sorting.component';
@@ -9,6 +10,10 @@ const sortingComponents = [
   BubbleSortComponent
 ];
 
+const thirdPartyModules = [
+  FlexLayoutModule
+];
+
 @NgModule({
   declarations: [
     SortingComponent,
@@ -16,7 +21,8 @@ const sortingComponents = [
   ],
   imports: [
     CommonModule,
-    SortingRoutingModule
+    SortingRoutingModule,
+    ...thirdPartyModules
   ]
 })
 export class SortingModule { }
