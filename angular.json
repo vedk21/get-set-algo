@@ -25,7 +25,9 @@
               "apps/get-set-algo/src/favicon.ico",
               "apps/get-set-algo/src/assets"
             ],
-            "styles": ["apps/get-set-algo/src/styles.scss"],
+            "styles": [
+              "apps/get-set-algo/src/styles/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
