@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SortingRoutingModule } from './sorting-routing.module';
 import { SortingComponent } from './sorting.component';
 import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
+import { AnimationElementsModule } from '@get-set-algo/animation-elements';
 
 const sortingComponents = [
   BubbleSortComponent
@@ -22,7 +23,8 @@ const thirdPartyModules = [
   imports: [
     CommonModule,
     SortingRoutingModule,
-    ...thirdPartyModules
+    ...thirdPartyModules,
+    AnimationElementsModule
   ]
 })
 export class SortingModule { }

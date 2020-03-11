@@ -1,0 +1,10 @@
+.array-animation-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  lib-array-box{
+    margin: 0 0.125em;
+  }
+}

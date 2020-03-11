@@ -9,6 +9,7 @@ import anime from 'animejs';
 export class BubbleSortComponent implements OnInit, AfterViewInit {
 
   // * variables
+  array = [4, 7, 2, 1];
   array1BoxAnimate;
   array2BoxAnimate;
 
@@ -23,7 +24,7 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
       targets: '.example-box .array-element-box.element-1',
       keyframes: [
         {translateY: '-4.5em'},
-        {translateX: '4.125em'},
+        {translateX: '4.25em'},
         {translateY: 0}
       ],
       duration: 2000,
@@ -36,7 +37,7 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
       targets: '.example-box .array-element-box.element-2',
       keyframes: [
         {translateY: '4.5em'},
-        {translateX: '-4.125em'},
+        {translateX: '-4.25em'},
         {translateY: 0}
       ],
       duration: 2000,
