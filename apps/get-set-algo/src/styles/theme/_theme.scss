@@ -1,0 +1,33 @@
+/*
+  Theme access functions
+*/
+
+@import './variables';
+
+// * COLORS *
+@function getPrimaryColor() {
+  @return $primary-color;
+}
+
+@function getSecondaryColor() {
+  @return $secondary-color;
+}
+
+@function getTertiaryColor() {
+  @return $tertiary-color;
+}
+
+@function getLightColor1() {
+  @return $light-color-1;
+}
+
+@function getLightColor2() {
+  @return $light-color-2;
+}
+// * END *
+
+// * FONTS *
+@function getApplicationFont() {
+  @return $font-family;
+}
+// * END *

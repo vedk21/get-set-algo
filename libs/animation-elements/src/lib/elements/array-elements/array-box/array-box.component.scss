@@ -1,7 +1,9 @@
+@import '../../../../../../../apps/get-set-algo/src/styles/theme/theme';
+
 .array-element-box {
   width: 4em;
   height: 4em;
-  background-color: #2562d4;
+  background-color: getTertiaryColor();
   border: 0.1em solid transparent;
 
   display: flex;
@@ -11,7 +13,7 @@
   label {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #FFF;
+    color: getLightColor2();
     text-align: center;
   }
 }
