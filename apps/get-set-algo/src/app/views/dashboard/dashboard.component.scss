@@ -14,10 +14,10 @@
     background-color: getSecondaryColor();
 
     .logo {
-      font-size: 1.55em;
+      font-size: 2.125rem;
       font-weight: 700;
       text-align: center;
-      color: getLightColor1();
+      color: getPrimaryColor();
       margin: 0;
     }
   }

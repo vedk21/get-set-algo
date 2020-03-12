@@ -1,0 +1,31 @@
+@import '../../../../../../../apps/get-set-algo/src/styles/theme/theme';
+
+.play-btn, .pause-btn, .replay-btn {
+  width: 3em;
+  height: 2.6em;
+  border: 0.0625em solid getLightColor2();
+  border-radius: 0.375em;
+  background-color: getPrimaryColor();
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    i {
+      opacity: 0.6;
+    }
+  }
+
+  i {
+    font-size: 1.5rem;
+    color: getLightColor1();
+    vertical-align: middle;
+    text-align: center;
+    opacity: 1;
+  }
+}

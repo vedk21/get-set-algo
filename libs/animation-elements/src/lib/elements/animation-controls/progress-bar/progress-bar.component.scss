@@ -1,0 +1,96 @@
+@import '../../../../../../../apps/get-set-algo/src/styles/theme/theme';
+
+.animation-progress-bar {
+  width: 100%;
+  margin: 0;
+  cursor: grab;
+}
+
+// custom input range styles
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 9px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px getBorderColor(), 0px 0px 1px getBorderColor();
+  background: #403D39;
+  border-radius: 1.3px;
+  border: 0.2px solid getBorderColor();
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px getLightColor1(), 0px 0px 1px getLightColor1();
+  border: 1px solid getLightColor1();
+  height: 30px;
+  width: 14px;
+  border-radius: 5px;
+  background: getPrimaryColor();
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -10.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #403D39;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 9px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px getBorderColor(), 0px 0px 1px getBorderColor();
+  background: #403D39;
+  border-radius: 1.3px;
+  border: 0.2px solid getBorderColor();
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px getBorderColor(), 0px 0px 1px getBorderColor();
+  border: 1px solid getBorderColor();
+  height: 30px;
+  width: 14px;
+  border-radius: 5px;
+  background: getPrimaryColor();
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 9px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #403D39;
+  border: 0.2px solid getBorderColor();
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px getBorderColor(), 0px 0px 1px getBorderColor();
+}
+input[type=range]::-ms-fill-upper {
+  background: #403D39;
+  border: 0.2px solid getBorderColor();
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px getBorderColor(), 0px 0px 1px getBorderColor();
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px getBorderColor(), 0px 0px 1px getBorderColor();
+  border: 1px solid getBorderColor();
+  height: 30px;
+  width: 14px;
+  border-radius: 5px;
+  background: getPrimaryColor();
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #403D39;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #403D39;
+}

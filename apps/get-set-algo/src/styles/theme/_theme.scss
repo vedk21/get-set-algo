@@ -24,6 +24,10 @@
 @function getLightColor2() {
   @return $light-color-2;
 }
+
+@function getBorderColor() {
+  @return $border-color;
+}
 // * END *
 
 // * FONTS *

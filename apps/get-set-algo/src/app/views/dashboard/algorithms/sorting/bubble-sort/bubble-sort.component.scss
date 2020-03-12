@@ -1,3 +1,5 @@
+@import '../../../../../../styles/theme/theme';
+
 #bubble-sort-root {
   width: 100%;
   height: 100%;
@@ -7,13 +9,26 @@
     height: 100%;
     
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: calc(100% - 5em) 4em;
     row-gap: 1em;
 
     .example-box {
-      width: 75%;
+      width: 100%;
       height: 100%;
       margin: 0 auto;
+      border: 0.0625em solid getBorderColor();
+      border-radius: 0.5em;
+    }
+
+    .example-controls {
+      
+      lib-progress-bar {
+        width: calc(100% - 7.5em);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

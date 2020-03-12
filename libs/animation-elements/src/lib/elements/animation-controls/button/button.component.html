@@ -1,0 +1,18 @@
+<div class="play-btn {{ disabled ? 'disabled' : null }}"
+*ngIf="type === 'play'" (click)="clicked($event)">
+  <i class="material-icons">
+    play_arrow
+  </i>
+</div>
+<div class="pause-btn {{ disabled ? 'disabled' : null }}"
+*ngIf="type === 'pause'" (click)="clicked($event)">
+  <i class="material-icons">
+    pause
+  </i>
+</div>
+<div class="replay-btn {{ disabled ? 'disabled' : null }}"
+*ngIf="type === 'replay'" (click)="clicked($event)">
+  <i class="material-icons">
+    replay
+  </i>
+</div>
