@@ -6,6 +6,7 @@ import { SortingRoutingModule } from './sorting-routing.module';
 import { SortingComponent } from './sorting.component';
 import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
 import { AnimationElementsModule } from '@get-set-algo/animation-elements';
+import { BubbleSortService } from './bubble-sort/bubble-sort.service';
 
 const sortingComponents = [
   BubbleSortComponent
@@ -25,6 +26,9 @@ const thirdPartyModules = [
     SortingRoutingModule,
     ...thirdPartyModules,
     AnimationElementsModule
+  ],
+  providers: [
+    BubbleSortService
   ]
 })
 export class SortingModule { }

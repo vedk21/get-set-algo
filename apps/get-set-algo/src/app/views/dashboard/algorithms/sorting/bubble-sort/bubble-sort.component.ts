@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import anime from 'animejs';
+import { BubbleSortService } from './bubble-sort.service';
 
 @Component({
   selector: 'gsa-bubble-sort',
@@ -8,92 +9,41 @@ import anime from 'animejs';
 })
 export class BubbleSortComponent implements OnInit, AfterViewInit {
 
-  // * variables
+  // * variables *
   array = [9, 7, 2, 1];
   animationPlaying = false;
+  
+  // * Controls Handlers *
+  progressBarControl: HTMLInputElement;
 
-  constructor() { }
+  constructor(
+    private _bubbleSortService: BubbleSortService
+  ) { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
 
-    // ! Initialize animejs
-    const controlsProgressEl: HTMLInputElement = document.querySelector('.example-controls .animation-progress-bar') as HTMLInputElement;
-    // .example-box .array-element-box.element-1
-    const frameAnimationTimeline = anime.timeline({
-      loop: false,
-      duration: 3500,
-      easing: 'easeOutElastic(1, .8)',
-      autoplay: false,
-      begin: (anim) => {
-        this.animationPlaying = true;
-      },
-      complete: (anim) => {
-        this.animationPlaying = false;
-      },
-      update: (anim) => {
-        controlsProgressEl.value = frameAnimationTimeline.progress;
-      }
-    });
+    // * get progress bar handler *
+    this.progressBarControl = document.querySelector('.example-controls .animation-progress-bar') as HTMLInputElement;
+    
+    // * Create animation timeline *
+    const bubbleSortAnimationTimeLine = this._bubbleSortService.createAnimationTimeLine();
 
-    frameAnimationTimeline.add({
-      targets: '.example-box .array-element-box.element-1',
-      keyframes: [
-        {backgroundColor: '#046B69'},
-        {translateY: '-4.5em'},
-        {translateX: '4.25em'},
-        {translateY: 0},
-        {backgroundColor: '#79B791'}
-      ],
-    });
+    // * Add click handlers on buttons *
+    this.addButtonControls(bubbleSortAnimationTimeLine);
 
-    frameAnimationTimeline.add({
-      targets: '.example-box .array-element-box.element-2',
-      keyframes: [
-        {backgroundColor: '#046B69'},
-        {translateY: '4.5em'},
-        {translateX: '-4.25em'},
-        {translateY: 0},
-        {backgroundColor: '#79B791'}
-      ],
-    }, '-=3500');
+    // * Add input handlers on progress bar *
+    this.addProgressBarControls(bubbleSortAnimationTimeLine);
 
-    frameAnimationTimeline.add({
-      targets: '.example-box .array-element-box.element-0',
-      keyframes: [
-        {backgroundColor: '#046B69'},
-        {translateY: '-4.5em'},
-        {translateX: '12.75em'},
-        {translateY: 0},
-        {backgroundColor: '#79B791'}
-      ],
-    });
-
-    frameAnimationTimeline.add({
-      targets: '.example-box .array-element-box.element-3',
-      keyframes: [
-        {backgroundColor: '#046B69'},
-        {translateY: '4.5em'},
-        {translateX: '-12.75em'},
-        {translateY: 0},
-        {backgroundColor: '#79B791'}
-      ],
-    }, '-=3500');
-
-    const playButton = document.querySelector('.example-controls .play-btn') as HTMLButtonElement;
-    playButton.onclick = frameAnimationTimeline.play;
-    const pauseButton = document.querySelector('.example-controls .pause-btn')as HTMLButtonElement;
-    pauseButton.onclick = frameAnimationTimeline.pause;
-    const replayButton = document.querySelector('.example-controls .replay-btn') as HTMLButtonElement;
-    replayButton.onclick = frameAnimationTimeline.restart;
-
-    controlsProgressEl.addEventListener('input', () => {
-      frameAnimationTimeline.seek(frameAnimationTimeline.duration * (Number(controlsProgressEl.value) / 100));
-    });
+    // * Subscribe to animation events *
+    this.animationStatusChangeEvent();
+    this.animationProgressUpdateEvent();
+    // * END *
   }
 
+  // * Events to update UI for animation controls *
   playAnimation(event) {
     this.animationPlaying = true;
   }
@@ -105,5 +55,45 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
   replayAnimation(event) {
     this.animationPlaying = true;
   }
+  // * END *
+
+  // * Select controls and bind events *
+  addButtonControls(bubbleSortAnimationTimeLine) {
+    const playButton = document.querySelector('.example-controls .play-btn') as HTMLButtonElement;
+    playButton.onclick = bubbleSortAnimationTimeLine.play;
+    const pauseButton = document.querySelector('.example-controls .pause-btn')as HTMLButtonElement;
+    pauseButton.onclick = bubbleSortAnimationTimeLine.pause;
+    const replayButton = document.querySelector('.example-controls .replay-btn') as HTMLButtonElement;
+    replayButton.onclick = bubbleSortAnimationTimeLine.restart;
+  }
+
+  addProgressBarControls(bubbleSortAnimationTimeLine) {
+    this.progressBarControl.addEventListener('input', () => {
+      bubbleSortAnimationTimeLine.seek(bubbleSortAnimationTimeLine.duration * (Number(this.progressBarControl.value) / 100));
+    });
+  }
+  // * END *
+
+  // * animation async events *
+  animationStatusChangeEvent() {
+    this._bubbleSortService.animationStatus.subscribe(
+      status => {
+        if (status === 'started') {
+          this.animationPlaying = true;
+        } else {
+          this.animationPlaying = false;
+        }
+      }
+    );
+  }
+
+  animationProgressUpdateEvent() {
+    this._bubbleSortService.animationUpdate.subscribe(
+      progress => {
+        this.progressBarControl.value = progress;
+      }
+    );
+  }
+  // * END *
 
 }
