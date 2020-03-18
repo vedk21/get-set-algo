@@ -24,9 +24,6 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
-    // * get progress bar handler *
-    this.progressBarControl = document.querySelector('.example-controls .animation-progress-bar') as HTMLInputElement;
     
     // * Create animation timeline *
     const bubbleSortAnimationTimeLine = this._bubbleSortService.createAnimationTimeLine();
@@ -40,7 +37,7 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     // * Subscribe to animation events *
     this.animationStatusChangeEvent();
     this.animationProgressUpdateEvent();
-    // * END *
+    
   }
 
   // * Events to update UI for animation controls *
@@ -68,6 +65,9 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
   }
 
   addProgressBarControls(bubbleSortAnimationTimeLine) {
+    // * get progress bar handler *
+    this.progressBarControl = document.querySelector('.example-controls .animation-progress-bar') as HTMLInputElement;
+
     this.progressBarControl.addEventListener('input', () => {
       bubbleSortAnimationTimeLine.seek(bubbleSortAnimationTimeLine.duration * (Number(this.progressBarControl.value) / 100));
     });
