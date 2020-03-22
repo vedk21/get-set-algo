@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import anime from 'animejs';
 import { BubbleSortService } from './bubble-sort.service';
+import { AnimationConfig } from '../../../../../models/animation/animation-config.model';
 
 @Component({
   selector: 'gsa-bubble-sort',
@@ -25,8 +26,23 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     
+    // * Initialize animation configurations *
+    const animationConfig: AnimationConfig = {
+      loop: false,
+      autoplay: false,
+      duration: {
+        timeline: 2500,
+        highlight: 1000
+      },
+      easing: 'easeOutElastic(1, .8)'
+    };
+
+    // * Initialize targets *
+    const target1 = '.example-box .array-element-box.element-1';
+    const target2 = '.example-box .array-element-box.element-2';
+
     // * Create animation timeline *
-    const bubbleSortAnimationTimeLine = this._bubbleSortService.createAnimationTimeLine();
+    const bubbleSortAnimationTimeLine = this._bubbleSortService.createAnimationTimeLine(animationConfig, target1, target2);
 
     // * Add click handlers on buttons *
     this.addButtonControls(bubbleSortAnimationTimeLine);
@@ -35,8 +51,8 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     this.addProgressBarControls(bubbleSortAnimationTimeLine);
 
     // * Subscribe to animation events *
-    this.animationStatusChangeEvent();
-    this.animationProgressUpdateEvent();
+    this.bubbleSortAnimationStatusChangeEvent();
+    this.bubbleSortAnimationProgressUpdateEvent();
     
   }
 
@@ -75,8 +91,8 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
   // * END *
 
   // * animation async events *
-  animationStatusChangeEvent() {
-    this._bubbleSortService.animationStatus.subscribe(
+  bubbleSortAnimationStatusChangeEvent() {
+    this._bubbleSortService.bubbleSortAnimationStatus.subscribe(
       status => {
         if (status === 'started') {
           this.animationPlaying = true;
@@ -87,8 +103,8 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     );
   }
 
-  animationProgressUpdateEvent() {
-    this._bubbleSortService.animationUpdate.subscribe(
+  bubbleSortAnimationProgressUpdateEvent() {
+    this._bubbleSortService.bubbleSortAnimationUpdate.subscribe(
       progress => {
         this.progressBarControl.value = progress;
       }

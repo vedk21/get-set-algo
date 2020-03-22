@@ -7,6 +7,7 @@ import { SortingComponent } from './sorting.component';
 import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
 import { AnimationElementsModule } from '@get-set-algo/animation-elements';
 import { BubbleSortService } from './bubble-sort/bubble-sort.service';
+import { HighlightService } from '@get-set-algo/animate';
 
 const sortingComponents = [
   BubbleSortComponent
@@ -14,6 +15,10 @@ const sortingComponents = [
 
 const thirdPartyModules = [
   FlexLayoutModule
+];
+
+const animationServices = [
+  HighlightService
 ];
 
 @NgModule({
@@ -28,7 +33,8 @@ const thirdPartyModules = [
     AnimationElementsModule
   ],
   providers: [
-    BubbleSortService
+    BubbleSortService,
+    ...animationServices
   ]
 })
 export class SortingModule { }
