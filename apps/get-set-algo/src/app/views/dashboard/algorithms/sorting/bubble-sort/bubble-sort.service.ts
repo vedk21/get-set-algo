@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import anime from 'animejs';
 import { Subject } from 'rxjs';
-import { HighlightService, InitializeService } from '@get-set-algo/animate';
+import { HighlightService, InitializeService, SwappingService } from '@get-set-algo/animate';
 import { AnimationConfig } from '../../../../../models/animation/animation-config.model';
 
 @Injectable()
@@ -13,7 +13,8 @@ export class BubbleSortService {
 
   constructor(
     private initializeAnimationService: InitializeService,
-    private highlightAnimationService: HighlightService
+    private highlightAnimationService: HighlightService,
+    private swappingAnimationService: SwappingService
   ) {
     // * Subscribe to animation events *
     this.animationStatusChangeEvent();
@@ -32,23 +33,7 @@ export class BubbleSortService {
     // * END *
 
     // * Swapping targets *
-    bubbleSortAnimationTimeLine.add({
-      targets: target1,
-      keyframes: [
-        {translateY: '-4.5em'},
-        {translateX: '4.25em'},
-        {translateY: 0}
-      ],
-    });
-
-    bubbleSortAnimationTimeLine.add({
-      targets: target2,
-      keyframes: [
-        {translateY: '4.5em'},
-        {translateX: '-4.25em'},
-        {translateY: 0}
-      ],
-    }, `-=${animationConfig.duration.timeline}`);
+    bubbleSortAnimationTimeLine = this.swappingAnimationService.swap(bubbleSortAnimationTimeLine, target1, target2, null, `-=${animationConfig.duration.timeline}`);
     // * END *
 
     // * De-highlighting targets *
