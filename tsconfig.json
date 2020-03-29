@@ -19,7 +19,9 @@
       "@get-set-algo/animation-elements": [
         "libs/animation-elements/src/index.ts"
       ],
-      "@get-set-algo/animate": ["libs/animate/src/index.ts"]
+      "@get-set-algo/animate": ["libs/animate/src/index.ts"],
+      "@get-set-algo/main-app/*": ["apps/get-set-algo/src/app/*"],
+      "@get-set-algo/animate-lib/*": ["libs/animate/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

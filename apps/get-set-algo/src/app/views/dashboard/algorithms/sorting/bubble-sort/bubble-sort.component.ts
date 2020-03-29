@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import anime from 'animejs';
 import { BubbleSortService } from './bubble-sort.service';
 import { AnimationConfig } from '../../../../../models/animation/animation-config.model';
+import { AnimationLinearTarget } from '@get-set-algo/animate-lib/models/animation-target.model';
 
 @Component({
   selector: 'gsa-bubble-sort',
@@ -11,7 +12,34 @@ import { AnimationConfig } from '../../../../../models/animation/animation-confi
 export class BubbleSortComponent implements OnInit, AfterViewInit {
 
   // * variables *
-  array = [9, 7, 2, 1];
+  array: number[] = [6, 3, 8, 5, 1, 3];
+  sortedArray: number[];
+  arrayOfTargets: AnimationLinearTarget[] = [
+    {
+      element: '.example-box .array-element-box.element-0',
+      displacement: 0
+    },
+    {
+      element: '.example-box .array-element-box.element-1',
+      displacement: 0
+    },
+    {
+      element: '.example-box .array-element-box.element-2',
+      displacement: 0
+    },
+    {
+      element: '.example-box .array-element-box.element-3',
+      displacement: 0
+    },
+    {
+      element: '.example-box .array-element-box.element-4',
+      displacement: 0
+    },
+    {
+      element: '.example-box .array-element-box.element-5',
+      displacement: 0
+    },
+  ];
   animationPlaying = false;
   
   // * Controls Handlers *
@@ -38,11 +66,12 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     };
 
     // * Initialize targets *
-    const target1 = '.example-box .array-element-box.element-1';
-    const target2 = '.example-box .array-element-box.element-2';
 
     // * Create animation timeline *
-    const bubbleSortAnimationTimeLine = this._bubbleSortService.createAnimationTimeLine(animationConfig, target1, target2);
+    const { arrayOfElements, bubbleSortAnimationTimeLine } = this._bubbleSortService.createAnimationTimeLine(animationConfig, [...this.array], this.arrayOfTargets);
+
+    // * Show sorted array *
+    this.sortedArray = arrayOfElements;
 
     // * Add click handlers on buttons *
     this.addButtonControls(bubbleSortAnimationTimeLine);
