@@ -10,17 +10,17 @@ export class HighlightService {
   constructor() { }
 
   // * Highlight block *
-  highlight(anime, target: AnimationLinearTarget, duration?: number, offset?: string) {
+  highlight(anime, target: AnimationLinearTarget, duration?: number, offset?: string, color?: string) {
     if (duration) {
       anime.add({
         targets: target.element,
         duration,
-        backgroundColor: Constants.ELEMENT_HIGHLIGHT_COLOR
+        backgroundColor: color ? color : Constants.ELEMENT_HIGHLIGHT_COLOR
       }, offset);
     } else {
       anime.add({
         targets: target.element,
-        backgroundColor: Constants.ELEMENT_HIGHLIGHT_COLOR
+        backgroundColor: color ? color : Constants.ELEMENT_HIGHLIGHT_COLOR
       }, offset);
     }
 
@@ -28,17 +28,17 @@ export class HighlightService {
   }
 
   // * De-highlight block *
-  de_highlight(anime, target: AnimationLinearTarget, duration?: number, offset?: string) {
+  de_highlight(anime, target: AnimationLinearTarget, duration?: number, offset?: string, color?: string) {
     if (duration) {
       anime.add({
         targets: target.element,
         duration,
-        backgroundColor: Constants.ELEMENT_ORIGINAL_COLOR
+        backgroundColor: color ? color : Constants.ELEMENT_ORIGINAL_COLOR
       }, offset);
     } else {
       anime.add({
         targets: target.element,
-        backgroundColor: Constants.ELEMENT_ORIGINAL_COLOR
+        backgroundColor: color ? color : Constants.ELEMENT_ORIGINAL_COLOR
       }, offset);
     }
 

@@ -11,30 +11,9 @@ import { AnimationConfig } from '@get-set-algo/main-app/models/animation/animati
 export class SelectionSortComponent implements OnInit {
 
   // * variables *
-  array: number[] = [8, 4, 0, 1, 2];
+  array: number[] = [55, 89, 90, 76, 88, 67, 88, 78];
   sortedArray: number[];
-  arrayOfTargets: AnimationLinearTarget[] = [
-    {
-      element: '.example-box .array-element-box.element-0',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-1',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-2',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-3',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-4',
-      displacement: 0
-    }
-  ];
+  arrayOfTargets: AnimationLinearTarget[] = [];
   animationPlaying = false;
   
   // * Controls Handlers *
@@ -55,12 +34,14 @@ export class SelectionSortComponent implements OnInit {
       autoplay: false,
       duration: {
         timeline: 2500,
-        highlight: 1000
+        highlight: 1000,
+        specialHighlight: 1200
       },
       easing: 'easeOutElastic(1, .8)'
     };
 
     // * Initialize targets *
+    this.initializeTargets();
 
     // * Create animation timeline *
     const { arrayOfElements, selectionSortAnimationTimeLine } = this._selectionSortService.createAnimationTimeLine(animationConfig, [...this.array], this.arrayOfTargets);
@@ -79,6 +60,18 @@ export class SelectionSortComponent implements OnInit {
     this.selectionSortAnimationProgressUpdateEvent();
     
   }
+
+  // * setup initial state *
+  initializeTargets() {
+    this.array.forEach((element, index) => {
+      const target: AnimationLinearTarget = {
+        element: `.example-box .array-element-box.element-${index}`,
+        displacement: 0
+      }
+      this.arrayOfTargets.push(target);
+    });
+  }
+  // * END *
 
   // * Events to update UI for animation controls *
   playAnimation(event) {

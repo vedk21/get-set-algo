@@ -8,4 +8,5 @@ export interface AnimationConfig {
 interface Duration {
   timeline: number;
   highlight: number;
+  specialHighlight?: number;
 }

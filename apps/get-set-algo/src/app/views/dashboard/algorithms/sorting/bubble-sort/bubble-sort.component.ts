@@ -14,28 +14,7 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
   // * variables *
   array: number[] = [28, 34, 0, 19, 2];
   sortedArray: number[];
-  arrayOfTargets: AnimationLinearTarget[] = [
-    {
-      element: '.example-box .array-element-box.element-0',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-1',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-2',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-3',
-      displacement: 0
-    },
-    {
-      element: '.example-box .array-element-box.element-4',
-      displacement: 0
-    }
-  ];
+  arrayOfTargets: AnimationLinearTarget[] = [];
   animationPlaying = false;
   
   // * Controls Handlers *
@@ -62,6 +41,7 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     };
 
     // * Initialize targets *
+    this.initializeTargets();
 
     // * Create animation timeline *
     const { arrayOfElements, bubbleSortAnimationTimeLine } = this._bubbleSortService.createAnimationTimeLine(animationConfig, [...this.array], this.arrayOfTargets);
@@ -80,6 +60,18 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     this.bubbleSortAnimationProgressUpdateEvent();
     
   }
+
+  // * setup initial state *
+  initializeTargets() {
+    this.array.forEach((element, index) => {
+      const target: AnimationLinearTarget = {
+        element: `.example-box .array-element-box.element-${index}`,
+        displacement: 0
+      }
+      this.arrayOfTargets.push(target);
+    });
+  }
+  // * END *
 
   // * Events to update UI for animation controls *
   playAnimation(event) {
