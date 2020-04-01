@@ -1,0 +1,15 @@
+<div id="selection-sort-root">
+  <div class="animation-container">
+    <div class="example-box" fxLayout="row" fxLayoutAlign="center center">
+      <lib-array [array]="array"></lib-array>
+    </div>
+    <div class="example-controls" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.75em">
+      <lib-button type="play" [disabled]="animationPlaying"
+      (buttonClicked)="playAnimation($event)"></lib-button>
+      <lib-button type="pause" [disabled]="!animationPlaying"
+      (buttonClicked)="pauseAnimation($event)"></lib-button>
+      <lib-button type="replay" (buttonClicked)="replayAnimation($event)"></lib-button>
+      <lib-progress-bar></lib-progress-bar>
+    </div>
+  </div>
+</div>

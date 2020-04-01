@@ -1,18 +1,17 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import anime from 'animejs';
-import { BubbleSortService } from './bubble-sort.service';
-import { AnimationConfig } from '../../../../../models/animation/animation-config.model';
+import { Component, OnInit } from '@angular/core';
 import { AnimationLinearTarget } from '@get-set-algo/animate-lib/models/animation-target.model';
+import { SelectionSortService } from './selection-sort.service';
+import { AnimationConfig } from '@get-set-algo/main-app/models/animation/animation-config.model';
 
 @Component({
-  selector: 'gsa-bubble-sort',
-  templateUrl: './bubble-sort.component.html',
-  styleUrls: ['./bubble-sort.component.scss']
+  selector: 'gsa-selection-sort',
+  templateUrl: './selection-sort.component.html',
+  styleUrls: ['./selection-sort.component.scss']
 })
-export class BubbleSortComponent implements OnInit, AfterViewInit {
+export class SelectionSortComponent implements OnInit {
 
   // * variables *
-  array: number[] = [28, 34, 0, 19, 2];
+  array: number[] = [8, 4, 0, 1, 2];
   sortedArray: number[];
   arrayOfTargets: AnimationLinearTarget[] = [
     {
@@ -42,7 +41,7 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
   progressBarControl: HTMLInputElement;
 
   constructor(
-    private _bubbleSortService: BubbleSortService
+    private _selectionSortService: SelectionSortService
   ) { }
 
   ngOnInit(): void {
@@ -64,20 +63,20 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     // * Initialize targets *
 
     // * Create animation timeline *
-    const { arrayOfElements, bubbleSortAnimationTimeLine } = this._bubbleSortService.createAnimationTimeLine(animationConfig, [...this.array], this.arrayOfTargets);
+    const { arrayOfElements, selectionSortAnimationTimeLine } = this._selectionSortService.createAnimationTimeLine(animationConfig, [...this.array], this.arrayOfTargets);
 
     // * Show sorted array *
     this.sortedArray = arrayOfElements;
 
     // * Add click handlers on buttons *
-    this.addButtonControls(bubbleSortAnimationTimeLine);
+    this.addButtonControls(selectionSortAnimationTimeLine);
 
     // * Add input handlers on progress bar *
-    this.addProgressBarControls(bubbleSortAnimationTimeLine);
+    this.addProgressBarControls(selectionSortAnimationTimeLine);
 
     // * Subscribe to animation events *
-    this.bubbleSortAnimationStatusChangeEvent();
-    this.bubbleSortAnimationProgressUpdateEvent();
+    this.selectionSortAnimationStatusChangeEvent();
+    this.selectionSortAnimationProgressUpdateEvent();
     
   }
 
@@ -96,28 +95,28 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
   // * END *
 
   // * Select controls and bind events *
-  addButtonControls(bubbleSortAnimationTimeLine) {
+  addButtonControls(selectionSortAnimationTimeLine) {
     const playButton = document.querySelector('.example-controls .play-btn') as HTMLButtonElement;
-    playButton.onclick = bubbleSortAnimationTimeLine.play;
+    playButton.onclick = selectionSortAnimationTimeLine.play;
     const pauseButton = document.querySelector('.example-controls .pause-btn')as HTMLButtonElement;
-    pauseButton.onclick = bubbleSortAnimationTimeLine.pause;
+    pauseButton.onclick = selectionSortAnimationTimeLine.pause;
     const replayButton = document.querySelector('.example-controls .replay-btn') as HTMLButtonElement;
-    replayButton.onclick = bubbleSortAnimationTimeLine.restart;
+    replayButton.onclick = selectionSortAnimationTimeLine.restart;
   }
 
-  addProgressBarControls(bubbleSortAnimationTimeLine) {
+  addProgressBarControls(selectionSortAnimationTimeLine) {
     // * get progress bar handler *
     this.progressBarControl = document.querySelector('.example-controls .animation-progress-bar') as HTMLInputElement;
 
     this.progressBarControl.addEventListener('input', () => {
-      bubbleSortAnimationTimeLine.seek(bubbleSortAnimationTimeLine.duration * (Number(this.progressBarControl.value) / 100));
+      selectionSortAnimationTimeLine.seek(selectionSortAnimationTimeLine.duration * (Number(this.progressBarControl.value) / 100));
     });
   }
   // * END *
 
   // * animation async events *
-  bubbleSortAnimationStatusChangeEvent() {
-    this._bubbleSortService.bubbleSortAnimationStatus.subscribe(
+  selectionSortAnimationStatusChangeEvent() {
+    this._selectionSortService.selectionSortAnimationStatus.subscribe(
       status => {
         if (status === 'started') {
           this.animationPlaying = true;
@@ -128,8 +127,8 @@ export class BubbleSortComponent implements OnInit, AfterViewInit {
     );
   }
 
-  bubbleSortAnimationProgressUpdateEvent() {
-    this._bubbleSortService.bubbleSortAnimationUpdate.subscribe(
+  selectionSortAnimationProgressUpdateEvent() {
+    this._selectionSortService.selectionSortAnimationUpdate.subscribe(
       progress => {
         this.progressBarControl.value = progress;
       }

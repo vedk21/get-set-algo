@@ -8,6 +8,8 @@ import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
 import { AnimationElementsModule } from '@get-set-algo/animation-elements';
 import { BubbleSortService } from './bubble-sort/bubble-sort.service';
 import { HighlightService, SwappingService } from '@get-set-algo/animate';
+import { SelectionSortComponent } from './selection-sort/selection-sort.component';
+import { SelectionSortService } from './selection-sort/selection-sort.service';
 
 const sortingComponents = [
   BubbleSortComponent
@@ -25,7 +27,8 @@ const animationServices = [
 @NgModule({
   declarations: [
     SortingComponent,
-    ...sortingComponents
+    ...sortingComponents,
+    SelectionSortComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,7 @@ const animationServices = [
   ],
   providers: [
     BubbleSortService,
+    SelectionSortService,
     ...animationServices
   ]
 })

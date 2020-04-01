@@ -1,6 +1,13 @@
 <div id="dashboard-root">
   <div class="left-side-panel">
     <h2 class="logo">GetSet<span>al</span>Go</h2>
+    <div class="panel">
+      <ul class="list">
+        <li class="item {{ item.active ? 'active' : null }}" *ngFor="let item of list" (click)="itemClicked(item)">
+          {{ item.text }}
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="right-side-panel">
     <router-outlet></router-outlet>
