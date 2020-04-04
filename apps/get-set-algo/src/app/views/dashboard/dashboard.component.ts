@@ -10,13 +10,21 @@ export class DashboardComponent implements OnInit {
 
   list = [
     {
-      text: 'bubble sort',
+      text: 'Algorithms',
       route: 'dashboard/algorithms/sorting/bubble_sort',
+      icon: 'fa-cubes',
       active: true
     },
     {
-      text: 'selection sort',
+      text: 'Problems',
       route: 'dashboard/algorithms/sorting/selection_sort',
+      icon: 'fa-question',
+      active: false
+    },
+    {
+      text: 'About',
+      route: 'dashboard/algorithms/sorting/selection_sort',
+      icon: 'fa-info-circle',
       active: false
     }
   ]
