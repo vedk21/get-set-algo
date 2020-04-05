@@ -1,12 +1,23 @@
 @import '../../../../../../styles/theme/theme';
 
-#bubble-sort-root {
+#algorithm-content-root {
   width: 100%;
   height: 100%;
 
+  .algorithm-content-header {
+    height: calc(3em + 1.5em);
+
+    h2 {
+      margin: 0.5em 0 1em 0;
+      font-size: 2rem;
+      font-weight: 700;
+      color: getSecondaryColor();
+    }
+  }
+
   .animation-container {
     width: 100%;
-    height: 100%;
+    height: calc(100% - (3em + 1.5em));
     
     display: grid;
     grid-template-rows: calc(100% - 5em) 4em;
@@ -16,8 +27,10 @@
       width: 100%;
       height: 100%;
       margin: 0 auto;
-      border: 0.0625em solid getBorderColor();
-      border-radius: 0.5em;
+      border: 0.0625em solid transparent;
+      border-radius: 0.8em;
+      background-color: #FFF;
+      box-shadow: 0 0 0.75em #C7C7C7;
     }
 
     .example-controls {

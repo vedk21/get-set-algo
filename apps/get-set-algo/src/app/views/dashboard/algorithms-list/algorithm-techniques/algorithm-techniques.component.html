@@ -3,8 +3,9 @@
     <div class="algorithms-techniques-header">
       <h2>Algorithm Techniques</h2>
     </div>
-    <div class="algorithms-techniques-body">
-      <div class="algorithm-box" *ngFor="let technique of algorithmsTechniquesList">
+    <div class="algorithms-techniques-body" *ngIf="algorithmsTechniquesList.length">
+      <div class="algorithm-box" *ngFor="let technique of algorithmsTechniquesList"
+      (click)="techniqueClicked(technique)">
         <h4>{{ technique.name }}</h4>
         <p>{{ technique.category }}</p>
         <div class="bottom-stats" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1em">
@@ -17,5 +18,11 @@
         </div>
       </div>
     </div>
+    <div class="no-content" *ngIf="!algorithmsTechniquesList.length"
+      fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="0.5em">
+        <i class="fab fa-fly"></i>
+        <p>No Content Available, Work In Progress</p>
+      </div>
   </div>
+  <router-outlet></router-outlet>
 </div>

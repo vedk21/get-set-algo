@@ -190,5 +190,9 @@
         }
       }
     }
+
+    .app-content {
+      height: calc(100% - 3em);
+    }
   }
 }

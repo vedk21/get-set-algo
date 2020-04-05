@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
-import { SelectionSortComponent } from './selection-sort/selection-sort.component';
+import { AlgorithmContentComponent } from './algorithm-content/algorithm-content.component';
 
 
 const routes: Routes = [
   {
-    path: 'bubble_sort', component: BubbleSortComponent
-  },
-  {
-    path: 'selection_sort', component: SelectionSortComponent
+    path: 'algorithm-content/:technique', component: AlgorithmContentComponent
   }
 ];
 

@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CommonAppModule } from './common/common.module';
 
-const sharedModules = [];
+const sharedModules = [
+  CommonAppModule
+];
 
 @NgModule({
   declarations: [AppComponent],

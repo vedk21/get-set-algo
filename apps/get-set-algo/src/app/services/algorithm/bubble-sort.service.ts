@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import anime from 'animejs';
 import { Subject } from 'rxjs';
 import { HighlightService, InitializeService, SwappingService } from '@get-set-algo/animate';
-import { AnimationConfig } from '../../../../../models/animation/animation-config.model';
-import { Utilities } from '../../../../../utilities/utilities';
+import { AnimationConfig } from '../../models/animation/animation-config.model';
+import { Utilities } from '../../utilities/utilities';
 import { AnimationLinearTarget } from '@get-set-algo/animate-lib/models/animation-target.model';
 
 @Injectable()
@@ -62,7 +62,7 @@ export class BubbleSortService {
 
     return {
       arrayOfElements,
-      bubbleSortAnimationTimeLine
+      animationTimeLine: bubbleSortAnimationTimeLine
     };
   }
 

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BubbleSortComponent } from './bubble-sort.component';
+import { AlgorithmContentComponent } from './algorithm-content.component';
 
-describe('BubbleSortComponent', () => {
-  let component: BubbleSortComponent;
-  let fixture: ComponentFixture<BubbleSortComponent>;
+describe('AlgorithmContentComponent', () => {
+  let component: AlgorithmContentComponent;
+  let fixture: ComponentFixture<AlgorithmContentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BubbleSortComponent ]
+      declarations: [ AlgorithmContentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BubbleSortComponent);
+    fixture = TestBed.createComponent(AlgorithmContentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

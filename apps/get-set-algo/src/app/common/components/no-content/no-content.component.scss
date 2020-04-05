@@ -1,0 +1,19 @@
+@import '../../../../styles/theme/theme';
+
+#no-content-root {
+  width: 100%;
+  height: 100%;
+
+  i {
+    font-size: 3rem;
+    color: getPrimaryColor();
+  }
+
+  p {
+    font-family: getApplicationFont();
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: getSecondaryColor();
+    margin: 0;
+  }
+}

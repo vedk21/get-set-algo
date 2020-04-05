@@ -4,15 +4,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AlgorithmTechniquesRoutingModule } from './algorithm-techniques-routing.module';
 import { AlgorithmTechniquesComponent } from './algorithm-techniques.component';
-import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
+import { AlgorithmContentComponent } from './algorithm-content/algorithm-content.component';
 import { AnimationElementsModule } from '@get-set-algo/animation-elements';
-import { BubbleSortService } from './bubble-sort/bubble-sort.service';
+import { BubbleSortService } from '../../../../services/algorithm/bubble-sort.service';
 import { HighlightService, SwappingService } from '@get-set-algo/animate';
-import { SelectionSortComponent } from './selection-sort/selection-sort.component';
-import { SelectionSortService } from './selection-sort/selection-sort.service';
+import { SelectionSortService } from '../../../../services/algorithm/selection-sort.service';
+import { PlainStrings } from '@get-set-algo/main-app/pipes/plain-strings.pipe';
 
 const sortingComponents = [
-  BubbleSortComponent
+  AlgorithmContentComponent
 ];
 
 const thirdPartyModules = [
@@ -24,11 +24,15 @@ const animationServices = [
   SwappingService
 ];
 
+const pipes = [
+  PlainStrings
+];
+
 @NgModule({
   declarations: [
     AlgorithmTechniquesComponent,
     ...sortingComponents,
-    SelectionSortComponent
+    ...pipes
   ],
   imports: [
     CommonModule,

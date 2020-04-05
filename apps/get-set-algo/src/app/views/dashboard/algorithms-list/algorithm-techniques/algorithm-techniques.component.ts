@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlgorithmTechnique } from '@get-set-algo/main-app/models/application/algorithm-technique.model';
 
 @Component({
   selector: 'gsa-algorithm-techniques',
@@ -10,10 +11,11 @@ export class AlgorithmTechniquesComponent implements OnInit {
 
   algorithmType;
 
-  algorithmsTechniquesList = [];
+  algorithmsTechniquesList: AlgorithmTechnique[] = [];
 
   constructor(
-    public activatedRoute: ActivatedRoute
+    public activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,12 +30,14 @@ export class AlgorithmTechniquesComponent implements OnInit {
       case 'sorting':
         this.algorithmsTechniquesList = [
           {
+            id: 'bubble-sort',
             name: 'Bubble Sort',
             category: '',
             spaceComplexity: 'n',
             timeComplexity: 'n2'
           },
           {
+            id: 'selection-sort',
             name: 'Selection Sort',
             category: '',
             spaceComplexity: 'n',
@@ -44,6 +48,10 @@ export class AlgorithmTechniquesComponent implements OnInit {
       default:
         this.algorithmsTechniquesList = [];
     }
+  }
+
+  techniqueClicked(technique) {
+    this.router.navigate(['algorithm-content', technique.id], {relativeTo: this.activatedRoute});
   }
 
 }

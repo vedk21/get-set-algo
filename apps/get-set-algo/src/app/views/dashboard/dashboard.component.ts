@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SidePanelItem } from '@get-set-algo/main-app/models/application/side-panel-item.model';
 import { ApplicationStats } from '@get-set-algo/main-app/models/application/application-stats.model';
 
@@ -49,7 +49,8 @@ export class DashboardComponent implements OnInit {
   ]
 
   constructor(
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +63,8 @@ export class DashboardComponent implements OnInit {
     // route to that item
     if (item.route) {
       this.router.navigate([item.route]);
+    } else {
+      this.router.navigate(['no-content'], {relativeTo: this.activatedRoute});
     }
   }
 

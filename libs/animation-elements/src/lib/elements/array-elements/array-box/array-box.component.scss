@@ -5,6 +5,8 @@
   height: 4em;
   background-color: getTertiaryColor();
   border: 0.1em solid transparent;
+  border-radius: 0.4em;
+  box-shadow: 0 0 0.75em #CACACA;
 
   display: flex;
   align-items: center;
