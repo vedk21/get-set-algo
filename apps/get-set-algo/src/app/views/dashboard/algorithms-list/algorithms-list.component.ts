@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AlgorithmCard } from '@get-set-algo/main-app/models/application/algorithm-card.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'gsa-algorithms',
-  templateUrl: './algorithms.component.html',
-  styleUrls: ['./algorithms.component.scss']
+  selector: 'gsa-algorithms-list',
+  templateUrl: './algorithms-list.component.html',
+  styleUrls: ['./algorithms-list.component.scss']
 })
-export class AlgorithmsComponent implements OnInit {
+export class AlgorithmsListComponent implements OnInit {
 
   algorithmsList: AlgorithmCard[] = [
     {
@@ -35,9 +36,16 @@ export class AlgorithmsComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  algorithmClicked(algorithm) {
+    this.router.navigate(['algorithm-techniques', algorithm.name.toLowerCase()], {relativeTo: this.activatedRoute});
   }
 
 }

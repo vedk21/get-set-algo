@@ -1,0 +1,22 @@
+<div id="algorithms-list-root">
+  <div class="algorithms-list-container" *ngIf="activatedRoute.children.length === 0">
+    <div class="algorithms-list-header">
+      <h2>Algorithms</h2>
+    </div>
+    <div class="algorithms-list-body">
+      <div class="algorithm-box" *ngFor="let algorithm of algorithmsList" (click)="algorithmClicked(algorithm)">
+        <h4>{{ algorithm.name }}</h4>
+        <p>{{ algorithm.category }}</p>
+        <div class="bottom-stats" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1em">
+          <div class="start">
+            <i class="{{ algorithm.icon }}"></i>
+          </div>
+          <div class="end">
+            <label>No. of Problems: <span>{{ algorithm.problems }}</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

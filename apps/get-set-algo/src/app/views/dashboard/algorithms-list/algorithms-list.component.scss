@@ -1,12 +1,12 @@
 @import '../../../../styles/theme/theme';
 
-#algorithms-root {
+#algorithms-list-root {
   width: 100%;
   height: calc(100% - 3em);
   padding: 1em 0 0 0;
   margin: 0;
 
-  .algorithms-header {
+  .algorithms-list-header {
 
     h2 {
       margin: 0.5em 0 1em 0;
@@ -16,7 +16,7 @@
     }
   }
 
-  .algorithms-body {
+  .algorithms-list-body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));;
     gap: 1em;

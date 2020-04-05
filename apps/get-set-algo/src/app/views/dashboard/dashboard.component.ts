@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   sidePanelList: SidePanelItem[] = [
     {
       text: 'Algorithms',
-      route: 'dashboard/algorithms',
+      route: 'dashboard/algorithms-list',
       icon: 'fa-cubes',
       active: true
     },
@@ -40,11 +40,11 @@ export class DashboardComponent implements OnInit {
   applicationStats: ApplicationStats[] = [
     {
       text: 'Algorithm',
-      value: 10
+      value: 2
     },
     {
       text: 'Problems',
-      value: 43
+      value: 0
     }
   ]
 

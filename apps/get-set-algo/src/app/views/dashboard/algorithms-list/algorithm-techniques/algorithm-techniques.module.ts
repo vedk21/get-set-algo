@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { SortingRoutingModule } from './sorting-routing.module';
-import { SortingComponent } from './sorting.component';
+import { AlgorithmTechniquesRoutingModule } from './algorithm-techniques-routing.module';
+import { AlgorithmTechniquesComponent } from './algorithm-techniques.component';
 import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
 import { AnimationElementsModule } from '@get-set-algo/animation-elements';
 import { BubbleSortService } from './bubble-sort/bubble-sort.service';
@@ -26,13 +26,13 @@ const animationServices = [
 
 @NgModule({
   declarations: [
-    SortingComponent,
+    AlgorithmTechniquesComponent,
     ...sortingComponents,
     SelectionSortComponent
   ],
   imports: [
     CommonModule,
-    SortingRoutingModule,
+    AlgorithmTechniquesRoutingModule,
     ...thirdPartyModules,
     AnimationElementsModule
   ],
@@ -42,4 +42,4 @@ const animationServices = [
     ...animationServices
   ]
 })
-export class SortingModule { }
+export class AlgorithmTechniquesModule { }

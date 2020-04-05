@@ -1,0 +1,21 @@
+<div id="algorithms-techniques-root">
+  <div class="algorithms-techniques-container" *ngIf="activatedRoute.children.length === 0">
+    <div class="algorithms-techniques-header">
+      <h2>Algorithm Techniques</h2>
+    </div>
+    <div class="algorithms-techniques-body">
+      <div class="algorithm-box" *ngFor="let technique of algorithmsTechniquesList">
+        <h4>{{ technique.name }}</h4>
+        <p>{{ technique.category }}</p>
+        <div class="bottom-stats" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1em">
+          <div class="start">
+            <label>Space Complexity: <span>{{ technique.spaceComplexity }}</span></label>
+          </div>
+          <div class="end">
+            <label>Time Complexity: <span>{{ technique.timeComplexity }}</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

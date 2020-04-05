@@ -6,9 +6,6 @@ import { SelectionSortComponent } from './selection-sort/selection-sort.componen
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'bubble_sort', pathMatch: 'full'
-  },
-  {
     path: 'bubble_sort', component: BubbleSortComponent
   },
   {
@@ -20,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SortingRoutingModule { }
+export class AlgorithmTechniquesRoutingModule { }
