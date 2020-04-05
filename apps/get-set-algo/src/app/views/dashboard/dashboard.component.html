@@ -22,6 +22,20 @@
     </div>
   </div>
   <div class="right-side-panel">
-    <!-- <router-outlet></router-outlet> -->
+    <div class="top-panel" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="1em">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input class="search-input-box" placeholder="Search...">
+      </div>
+      <div class="actions" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="0.75em">
+        <div class="settings">
+          <i class="fas fa-cog"></i>
+        </div>
+        <div class="notifications">
+          <i class="fas fa-bell"></i>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
