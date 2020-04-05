@@ -13,19 +13,25 @@ export class DashboardComponent implements OnInit {
   sidePanelList: SidePanelItem[] = [
     {
       text: 'Algorithms',
-      route: 'dashboard/algorithms/sorting/bubble_sort',
+      route: 'dashboard/algorithms',
       icon: 'fa-cubes',
       active: true
     },
     {
+      text: 'Data Structures',
+      route: '',
+      icon: 'fa-stream',
+      active: false
+    },
+    {
       text: 'Problems',
-      route: 'dashboard/algorithms/sorting/selection_sort',
+      route: '',
       icon: 'fa-question',
       active: false
     },
     {
       text: 'About',
-      route: 'dashboard/algorithms/sorting/selection_sort',
+      route: '',
       icon: 'fa-info-circle',
       active: false
     }
@@ -54,7 +60,9 @@ export class DashboardComponent implements OnInit {
     item.active = true;
 
     // route to that item
-    this.router.navigate([item.route]);
+    if (item.route) {
+      this.router.navigate([item.route]);
+    }
   }
 
 }

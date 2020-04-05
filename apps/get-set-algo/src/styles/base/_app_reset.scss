@@ -3,6 +3,7 @@
 */
 
 @import '../theme/theme';
+@import '../theme/variables';
 
 * {
   box-sizing: border-box;
@@ -12,7 +13,12 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  font-size: 16px;
+  // font-size: 16px;
+  font-size: calc(0.6em + 0.4vw);
+
+  @media screen and (max-width: $tablet-width) {
+    font-size: calc(0.4em + 0.4vw);
+  }
 
   body {
     margin: 0;
