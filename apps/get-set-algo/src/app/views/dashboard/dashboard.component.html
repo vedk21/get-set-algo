@@ -5,18 +5,14 @@
       <img src="./assets/svg/logo.svg" class="logo">
     </div>
     <div class="stats-container">
-      <div class="stats-box">
-        <label class="number">2</label>
-        <label class="label">Algorithms</label>
-      </div>
-      <div class="stats-box">
-        <label class="number">0</label>
-        <label class="label">Problems</label>
+      <div class="stats-box" *ngFor="let stat of applicationStats">
+        <label class="number">{{ stat.value }}</label>
+        <label class="label">{{ stat.text }}</label>
       </div>
     </div>
     <div class="panel">
       <ul class="list">
-        <li class="item {{ item.active ? 'active' : null }}" *ngFor="let item of list" (click)="itemClicked(item)">
+        <li class="item {{ item.active ? 'active' : null }}" *ngFor="let item of sidePanelList" (click)="itemClicked(item)">
           <div class="icon-block">
             <i class="fas {{ item.icon }}"></i>
           </div>

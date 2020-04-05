@@ -10,9 +10,11 @@
   grid-template-columns: 16.875em calc(100% - 16.875em);
 
   .left-side-panel {
+    position: relative;
     height: 100%;
     padding: 1em 0;
     background-color: getSecondaryColor();
+    box-shadow: 0 0 1em getSecondaryColor();
 
     .logo-text {
       font-size: 1.725rem;
@@ -50,7 +52,6 @@
       .stats-box {
         border: 0.0625em solid transparent;
         border-radius: 0.625em;
-        background-color: getPrimaryColor();
         width: 7em;
         padding: 1em;
 
@@ -83,7 +84,7 @@
       align-items: center;
       justify-content: flex-start;
       height: calc(100% - 3.125em - 8.4375em);
-      padding: 1em 0;
+      padding: 0 0 1em 0;
 
       .list {
         width: 100%;
@@ -107,7 +108,7 @@
             color: getLightColor1();
             text-transform: capitalize;
             cursor: pointer;
-            transition: color 0.35s ease-in;
+            transition: color 0.2s ease-in;
           }
 
           .icon-block {
@@ -117,7 +118,7 @@
             i {
               font-size: 1.5rem;
               color: getLightColor1();
-              transition: color 0.35s ease-in;
+              transition: color 0.2s ease-in;
             }
           }
 

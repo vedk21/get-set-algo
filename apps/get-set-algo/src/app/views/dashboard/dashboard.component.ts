@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SidePanelItem } from '@get-set-algo/main-app/models/application/side-panel-item.model';
+import { ApplicationStats } from '@get-set-algo/main-app/models/application/application-stats.model';
 
 @Component({
   selector: 'gsa-dashboard',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  list = [
+  sidePanelList: SidePanelItem[] = [
     {
       text: 'Algorithms',
       route: 'dashboard/algorithms/sorting/bubble_sort',
@@ -27,6 +29,17 @@ export class DashboardComponent implements OnInit {
       icon: 'fa-info-circle',
       active: false
     }
+  ];
+
+  applicationStats: ApplicationStats[] = [
+    {
+      text: 'Algorithm',
+      value: 10
+    },
+    {
+      text: 'Problems',
+      value: 43
+    }
   ]
 
   constructor(
@@ -36,8 +49,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  itemClicked(item) {
-    this.list.forEach(itm => itm.active = false);
+  itemClicked(item: SidePanelItem) {
+    this.sidePanelList.forEach((itm: SidePanelItem) => itm.active = false);
     item.active = true;
 
     // route to that item
