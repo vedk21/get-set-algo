@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AlgorithmsComponent } from './algorithms.component';
 import { AlgorithmsRoutingModule } from './algorithms-routing.module';
 
@@ -9,6 +10,7 @@ import { AlgorithmsRoutingModule } from './algorithms-routing.module';
   declarations: [AlgorithmsComponent],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     AlgorithmsRoutingModule
   ]
 })
